@@ -1,0 +1,12 @@
+ai_content_suggestions_js:
+  js:
+    js/ai_content_suggestions.js : {}
+  dependencies:
+    - core/jquery
+
+field_widget:
+  js:
+    js/field_widget.js: { }
+  css:
+    theme:
+      css/field_widget.css: { }

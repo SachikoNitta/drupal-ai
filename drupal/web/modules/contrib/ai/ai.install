@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ai module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function ai_requirements($phase) {
+  $requirements = [];
+
+  // Check that providers are installed and usable.
+  if ($phase == 'runtime') {
+    $ai_provider = \Drupal::service('ai.provider');
+    $warn = TRUE;
+    foreach ($ai_provider->getDefinitions() as $provider_id => $provider) {
+      if ($ai_provider->createInstance($provider_id)->isUsable()) {
+        $warn = FALSE;
+        break;
+      }
+    }
+    if ($warn) {
+      $requirements['ai_module'] = [
+        'title' => t('AI'),
+        'value' => t('You need to install and setup one AI Provider before you can use the AI module.'),
+        'severity' => REQUIREMENT_WARNING,
+      ];
+    }
+    else {
+      $requirements['ai_module'] = [
+        'title' => t('AI'),
+        'value' => t('Providers installed'),
+        'severity' => REQUIREMENT_OK,
+      ];
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Update hook to update the custom models.
+ */
+function ai_update_10300() {
+  $old_config = \Drupal::configFactory()->get('ai_models.settings');
+  if ($old_config->get('models')) {
+    $models = $old_config->get('models');
+    $config = \Drupal::configFactory()->getEditable('ai.settings');
+    $config->set('models', $models)->save();
+    // Remove the old config.
+    \Drupal::configFactory()->getEditable('ai_models.settings')->delete();
+  }
+}
+
+/**
+ * Checks to ensure a smooth migration from AI submodules to external modules.
+ */
+function ai_update_10301() {
+  // Does not serve any purpose, but is here to ensure that the update hook
+  // is still available.
+  // See: https://www.drupal.org/i/3521487
+}
+
+/**
+ * Disable deprecated sub modules.
+ */
+function ai_update_10302() {
+  // Does not serve any purpose, but is here to ensure that the update hook
+  // is still available.
+  // See: https://www.drupal.org/i/3521487
+}
