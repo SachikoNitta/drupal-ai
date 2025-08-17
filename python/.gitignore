@@ -1,0 +1,20 @@
+# Virtual Environment
+venv/
+
+# Environment Variables (keep .env.example)
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE Files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log

@@ -1,0 +1,9 @@
+react_chat:
+  js:
+    js/dist/chat.bundle.js: {}
+  css:
+    theme:
+      css/chat.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

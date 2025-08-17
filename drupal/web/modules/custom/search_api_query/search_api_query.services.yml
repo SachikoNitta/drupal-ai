@@ -1,0 +1,4 @@
+services:
+  search_api_query.search_service:
+    class: Drupal\search_api_query\Service\SearchApiQueryService
+    arguments: ['@entity_type.manager', '@config.factory', '@logger.factory']

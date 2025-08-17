@@ -1,0 +1,9 @@
+name: 'AI Chat'
+type: module
+description: 'React-based AI chat interface for Drupal'
+core_version_requirement: ^9 || ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:user
+  - drupal:system
+  - search_api_query:search_api_query

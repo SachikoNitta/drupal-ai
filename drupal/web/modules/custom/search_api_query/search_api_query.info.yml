@@ -1,0 +1,8 @@
+name: 'Search API Query'
+type: module
+description: 'Provides enhanced query service for Search API'
+core_version_requirement: ^9 || ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:search_api
+  - drupal:system

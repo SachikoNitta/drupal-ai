@@ -1,0 +1,7 @@
+# Minimal requirements compatible with Python 3.13
+fastapi>=0.116.0
+uvicorn>=0.35.0
+google-generativeai>=0.8.0
+python-dotenv>=1.1.0
+pydantic>=2.11.0
+httpx>=0.28.0

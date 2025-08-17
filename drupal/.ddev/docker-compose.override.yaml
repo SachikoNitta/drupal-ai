@@ -1,0 +1,6 @@
+# .ddev/docker-compose.override.yaml
+version: '3.6'
+services:
+  web:
+    volumes:
+      - ../secret:/var/secret:rwd

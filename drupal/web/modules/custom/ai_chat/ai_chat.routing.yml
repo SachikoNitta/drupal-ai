@@ -1,0 +1,18 @@
+ai_chat.chat_page:
+  path: '/chat'
+  defaults:
+    _controller: '\Drupal\ai_chat\Controller\ChatController::chatPage'
+    _title: 'AI Chat'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+ai_chat.api:
+  path: '/api/chat'
+  defaults:
+    _controller: '\Drupal\ai_chat\Controller\ChatController::apiResponse'
+  requirements:
+    _permission: 'access content'
+  methods: [POST]
+  options:
+    _auth: ['cookie']
