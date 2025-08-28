@@ -1,0 +1,37 @@
+uuid: 1ea1a10a-32b3-4e9c-8000-fc0d30cd5205
+langcode: en
+status: true
+dependencies: {  }
+id: article_finder_assistant
+label: 'Article finder assistant'
+description: 'An assistant that can generate answer referencing to RAG result'
+system_prompt: ''
+pre_action_prompt: ''
+instructions: "You are a helpful AI assistant. When answering questions, first search for relevant information using available tools. If you find relevant content, use it to provide accurate, detailed answers. If no relevant content is found, provide a helpful response based on your general knowledge while noting that you don't have specific information about that topic in the knowledge base."
+allow_history: session
+history_context_length: '5'
+error_message: 'I am sorry, something went terribly wrong. Please try to ask me again.'
+specific_error_messages:
+  AiBadRequestException: ''
+  AiRateLimitException: ''
+  AiQuotaException: ''
+  AiSetupFailureException: ''
+  AiRequestErrorException: ''
+llm_provider: gemini
+llm_model: models/gemini-2.0-flash
+llm_configuration:
+  stopSequences: ''
+  maxOutputTokens: 1024
+  temperature: 0.0
+  topP: 0.0
+  topK: 0.0
+  responseSchema: string
+  responseMimeType: text/plain
+actions_enabled: {  }
+roles:
+  authenticated: authenticated
+  anonymous: 0
+  content_editor: 0
+  administrator: 0
+use_function_calling: false
+ai_agent: article_finder_assistant

@@ -1,0 +1,12 @@
+uuid: d5125225-3803-4470-977b-36b3bfd81bd5
+langcode: en
+status: true
+dependencies: {  }
+id: ''
+name: ''
+description: 'OpenID Connect access'
+grant_types: {  }
+umbrella: false
+parent: null
+granularity_id: null
+granularity_configuration: null

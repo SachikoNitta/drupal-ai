@@ -1,0 +1,35 @@
+uuid: 0ce84720-3a85-4057-a270-7ee998d96ff4
+langcode: en
+status: true
+dependencies: {  }
+id: article_finder_assistant
+label: 'Article finder assistant'
+description: 'An assistant that can generate answer referencing to RAG result'
+system_prompt: "You are a helpful AI assistant. When answering questions, first search for relevant information using available tools. If you find relevant content, use it to provide accurate, detailed answers. If no relevant content is found, provide a helpful response based on your general knowledge while noting that you don't have specific information about that topic in the knowledge base."
+secured_system_prompt: null
+tools:
+  'ai_search:rag_search': true
+tool_settings: null
+orchestration_agent: true
+triage_agent: false
+max_loops: 3
+default_information_tools: null
+tool_usage_limits:
+  'ai_search:rag_search':
+    index:
+      values:
+        - index
+      action: force_value
+      hide_property: 1
+    amount:
+      values:
+        - '5'
+      action: force_value
+      hide_property: 1
+    min_score:
+      values:
+        - '0.5'
+      action: force_value
+      hide_property: 1
+exclude_users_role: false
+masquerade_roles: {  }

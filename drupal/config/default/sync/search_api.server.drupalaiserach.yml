@@ -1,0 +1,27 @@
+uuid: 6f5e649a-69a0-4bd1-8cd2-4c7d03be67e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - ai_search
+id: drupalaiserach
+name: drupalaiserach
+description: ''
+backend: search_api_ai_search
+backend_config:
+  chat_model: gemini__models/gemini-1.0-pro-vision-latest
+  database: pinecone
+  database_settings:
+    database_name: drupalaiserach
+    collection: drupalaiserach
+    metric: cosine_similarity
+  embeddings_engine: gemini__models/embedding-001
+  embeddings_engine_configuration:
+    set_dimensions: false
+    dimensions: 768
+  embedding_strategy: contextual_chunks
+  embedding_strategy_configuration:
+    chunk_size: '500'
+    chunk_min_overlap: '100'
+    contextual_content_max_percentage: '30'
+  embedding_strategy_details: ''
